@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Masažni salon</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #009688;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .login-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #ffffff;
+      color: #009688;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+      }
+
+      .login-button:hover {
+          background-color: #e0e0e0;
+      }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .massage-box {
+      background-color: white;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .massage-box h3 {
+      margin-top: 0;
+    }
+
+    .massage-box p {
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #009688;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #00796b;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Masažni salon</h1>
+    <nav>
+      <ul>
+        <li><a href="login.html" class="login-button">Prijava</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Naše masaže</h2>
+
+    <div class="massage-box">
+      <h3>Športna masaža</h3>
+      <p>Idealen za športnike in aktivne posameznike. Pomaga pri sprostitvi mišic in regeneraciji telesa.</p>
+      <a class="btn" href="sportska.html">Več o masaži</a>
+    </div>
+
+    <div class="massage-box">
+      <h3>Švedska masaža</h3>
+      <p>Klasična masaža za sprostitev telesa in izboljšanje krvnega obtoka. Priljubljena med začetniki.</p>
+      <a class="btn" href="svedska.html">Več o masaži</a>
+    </div>
+
+    <div class="massage-box">
+      <h3>Tajska masaža</h3>
+      <p>Tradicionalna masaža z raztezanjem in pritiskom, ki izboljša gibljivost in energijski pretok.</p>
+      <a class="btn" href="tajska.html">Več o masaži</a>
+    </div>
+
+    <div class="massage-box">
+      <h3>Aromaterapevtska masaža</h3>
+      <p>Združuje masažo in eterična olja za sproščanje duha in telesa. Popolna za odpravljanje stresa.</p>
+      <a class="btn" href="aromaterapevtska.html">Več o masaži</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Masažni salon. Vse pravice pridržane.</p>
+  </footer>
+</body>
+</html>
