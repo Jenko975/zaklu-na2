@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect, session, url_for
+from tinydb import TinyDB, Query
 
 app = Flask(__name__)
-
+db = TinyDB('database.json')
+uporabniki = db.table('uporabniki')
 
 @app.route('/')
 def home():
@@ -12,13 +14,41 @@ def index():
     username = session.get('username')
     return render_template('index.html', username=username)
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login.html', methods=['GET', 'POST'])
 def login():
+    error = None
     if request.method == 'POST':
         username = request.form['username']
-        session['username'] = username
-        return redirect(url_for('index'))
-    return render_template('login.html')
+        password = request.form['password']
+
+        user = db.search(uporabniki.uporabnisko_ime == username)
+        if user and user[0]['geslo'] == password:
+            session['uporabnisko_ime'] = username
+            return redirect('/index.html')
+        else:
+            error = 'Napačno uporabniško ime ali geslo.'
+
+    return render_template('login.html', error=error)
+
+
+@app.route('/register.html', methods=['GET', 'POST'])
+def register():
+    error = None
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        confirm = request.form['confirm']
+
+        if password != confirm:
+            error = 'Gesli se ne ujemata.'
+        elif db.search(uporabniki.uporabnisko_ime == username):
+            error = 'Uporabniško ime že obstaja.'
+        else:
+            db.insert({'uporabnisko_ime': username, 'geslo': password})
+            session['uporabnisko_ime'] = username
+            return redirect('/index.html')
+
+    return render_template('register.html', error=error)
 
 @app.route('/svedska.html')
 def svedska_masaza():

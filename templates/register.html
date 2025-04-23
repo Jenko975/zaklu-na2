@@ -2,39 +2,39 @@
 <html lang="sl">
 <head>
     <meta charset="UTF-8">
-    <title>Prijava</title>
+    <title>Registracija</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
 
-        .login-form {
+        .register-form {
             background-color: white;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            width: 300px;
+            width: 320px;
         }
 
-        .login-form h2 {
-            margin-bottom: 20px;
+        .register-form h2 {
             text-align: center;
+            margin-bottom: 20px;
         }
 
-        .login-form input[type="text"],
-        .login-form input[type="password"] {
+        .register-form input[type="text"],
+        .register-form input[type="password"] {
             width: 100%;
             padding: 10px;
             margin: 8px 0;
             box-sizing: border-box;
         }
 
-        .login-form input[type="submit"] {
+        .register-form input[type="submit"] {
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -43,22 +43,8 @@
             cursor: pointer;
         }
 
-        .login-form input[type="submit"]:hover {
+        .register-form input[type="submit"]:hover {
             background-color: #45a049;
-        }
-
-        .register-link {
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .register-link a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-
-        .register-link a:hover {
-            text-decoration: underline;
         }
 
         .error {
@@ -68,23 +54,23 @@
     </style>
 </head>
 <body>
-    <form class="login-form" method="POST" action="/login.html">
-        <h2>Prijava</h2>
+    <form class="register-form" method="POST" action="/register.html">
+        <h2>Registracija</h2>
+        
         <label for="username">Uporabniško ime:</label>
         <input type="text" id="username" name="username" required>
-
+        
         <label for="password">Geslo:</label>
         <input type="password" id="password" name="password" required>
-
-        <input type="submit" value="Prijava">
         
+        <label for="confirm">Ponovi geslo:</label>
+        <input type="password" id="confirm" name="confirm" required>
+
+        <input type="submit" value="Registriraj se">
+
         {% if error %}
             <p class="error">{{ error }}</p>
         {% endif %}
-
-        <div class="register-link">
-            <p>Še nimaš računa? <a href="/register.html">Registriraj se</a></p>
-        </div>
     </form>
 </body>
 </html>
