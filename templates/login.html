@@ -70,6 +70,7 @@
 <body>
     <form class="login-form" method="POST" action="/login.html">
         <h2>Prijava</h2>
+
         <label for="username">Uporabniško ime:</label>
         <input type="text" id="username" name="username" required>
 
@@ -77,7 +78,7 @@
         <input type="password" id="password" name="password" required>
 
         <input type="submit" value="Prijava">
-        
+
         {% if error %}
             <p class="error">{{ error }}</p>
         {% endif %}

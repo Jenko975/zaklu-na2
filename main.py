@@ -41,7 +41,7 @@ def register():
 
         if password != confirm:
             error = 'Gesli se ne ujemata.'
-        elif db.search(uporabniki.uporabnisko_ime == username):
+        elif db.search(uporabniki.uporabnisko_ime == username):  # PRAVILNO
             error = 'Uporabniško ime že obstaja.'
         else:
             db.insert({'uporabnisko_ime': username, 'geslo': password})
@@ -49,6 +49,7 @@ def register():
             return redirect('/index.html')
 
     return render_template('register.html', error=error)
+
 
 @app.route('/svedska.html')
 def svedska_masaza():
