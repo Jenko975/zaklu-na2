@@ -2,17 +2,18 @@ from flask import Flask, render_template, request, redirect, session, url_for
 from tinydb import TinyDB, Query
 
 app = Flask(__name__)
-db = TinyDB('database.json')
-uporabniki = db.table('uporabniki')
+db = TinyDB('uporabniki.json')
+Uporabnik = Query()
 
 @app.route('/')
 def home():
     return render_template('index.html')
 
-@app.route('/')
+@app.route('/index.html')
 def index():
-    username = session.get('username')
+    username = request.args.get('username', None)
     return render_template('index.html', username=username)
+
 
 @app.route('/login.html', methods=['GET', 'POST'])
 def login():
@@ -21,10 +22,11 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        user = db.search(uporabniki.uporabnisko_ime == username)
+        # Tukaj predpostavljam, da iščeš uporabnika v bazi (seveda moraš to prilagoditi)
+        user = db.search(Uporabnik.uporabnisko_ime == username)
         if user and user[0]['geslo'] == password:
-            session['uporabnisko_ime'] = username
-            return redirect('/index.html')
+            # Tukaj več ne shranjujemo uporabniškega imena v sejo, ampak samo prenesemo podatke
+            return redirect(f'/index.html?username={username}')
         else:
             error = 'Napačno uporabniško ime ali geslo.'
 
@@ -41,14 +43,14 @@ def register():
 
         if password != confirm:
             error = 'Gesli se ne ujemata.'
-        elif db.search(uporabniki.uporabnisko_ime == username):  # PRAVILNO
+        elif db.search(Uporabnik.uporabnisko_ime == username):  # PRAVILNO
             error = 'Uporabniško ime že obstaja.'
         else:
             db.insert({'uporabnisko_ime': username, 'geslo': password})
             session['uporabnisko_ime'] = username
             return redirect('/index.html')
 
-    return render_template('register.html', error=error)
+    return render_template('index.html', error=error)
 
 
 @app.route('/svedska.html')

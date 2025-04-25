@@ -110,7 +110,12 @@
     <h1>Masažni salon</h1>
     <nav>
       <ul>
+        {% if request.args.get('username') %}
+        <li><a href="#">Pozdravljen, {{ request.args.get('username') }}</a></li>
+        {% else %}
         <li><a href="login.html" class="login-button">Prijava</a></li>
+        {% endif %}
+
       </ul>
     </nav>
   </header>
