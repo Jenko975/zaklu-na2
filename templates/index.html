@@ -4,56 +4,61 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Masažni salon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      background-color: #f8f9fa;
       color: #333;
     }
 
     header {
       background-color: #009688;
       color: white;
-      padding: 1rem;
-      text-align: center;
+      padding: 1.5rem 1rem;
+      position: relative;
     }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
     .login-button {
       position: absolute;
       top: 20px;
       right: 20px;
-      background-color: #ffffff;
+      background-color: white;
       color: #009688;
-      padding: 10px 20px;
-      border-radius: 5px;
+      padding: 10px 18px;
+      border-radius: 30px;
       text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease;
-      }
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
 
-      .login-button:hover {
-          background-color: #e0e0e0;
-      }
+    .login-button:hover {
+      background-color: #e0e0e0;
+    }
 
     nav ul {
       list-style: none;
+      margin: 0;
       padding: 0;
+      margin-top: 10px;
       display: flex;
       justify-content: center;
       gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    nav ul li {
-      display: inline;
     }
 
     nav ul li a {
       color: white;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 500;
+      transition: color 0.2s ease;
     }
 
     nav ul li a:hover {
@@ -61,35 +66,60 @@
     }
 
     main {
-      padding: 2rem;
-      max-width: 1000px;
+      padding: 3rem 1rem;
+      max-width: 800px;
       margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-size: 2rem;
+      color: #00796b;
     }
 
     .massage-box {
       background-color: white;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease;
+    }
+
+    .massage-box:hover {
+      transform: translateY(-4px);
+    }
+
+    .massage-box img {
+      width: 100%;
+      height: 250px; /* Fiksna višina */
+      object-fit: cover; /* Prilagodi sliko brez popačenja */
+      border-radius: 10px;
+      margin-bottom: 1rem;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
+
     .massage-box h3 {
       margin-top: 0;
+      color: #009688;
     }
 
     .massage-box p {
-      margin-bottom: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
     }
 
     .btn {
       display: inline-block;
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1.2rem;
       background-color: #009688;
       color: white;
       text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.2s ease;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
     }
 
     .btn:hover {
@@ -100,22 +130,27 @@
       background-color: #333;
       color: white;
       text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Masažni salon</h1>
+    <a href="login.html" class="login-button">
+      {% if request.args.get('username') %}
+        Pozdravljen, {{ request.args.get('username') }}
+      {% else %}
+        Prijava
+      {% endif %}
+    </a>
     <nav>
       <ul>
-        {% if request.args.get('username') %}
-        <li><a href="#">Pozdravljen, {{ request.args.get('username') }}</a></li>
-        {% else %}
-        <li><a href="login.html" class="login-button">Prijava</a></li>
-        {% endif %}
-
+        <li><a href="#">Domov</a></li>
+        <li><a href="#">Storitve</a></li>
+        <li><a href="#">Kontakt</a></li>
       </ul>
     </nav>
   </header>
@@ -124,24 +159,28 @@
     <h2>Naše masaže</h2>
 
     <div class="massage-box">
+      <img src="https://medicofit.b-cdn.net/wp-content/uploads/2022/03/MF22-341.jpg" alt="Športna masaža">
       <h3>Športna masaža</h3>
       <p>Idealen za športnike in aktivne posameznike. Pomaga pri sprostitvi mišic in regeneraciji telesa.</p>
       <a class="btn" href="sportska.html">Več o masaži</a>
     </div>
 
     <div class="massage-box">
+      <img src="https://possible.si/wp-content/uploads/2023/04/Slika3.png" alt="Švedska masaža">
       <h3>Švedska masaža</h3>
       <p>Klasična masaža za sprostitev telesa in izboljšanje krvnega obtoka. Priljubljena med začetniki.</p>
       <a class="btn" href="svedska.html">Več o masaži</a>
     </div>
 
     <div class="massage-box">
+      <img src="https://content.selectbox.si/uploads/2018/01/masaze-onzonthai-IX-web.jpg" alt="Tajska masaža">
       <h3>Tajska masaža</h3>
       <p>Tradicionalna masaža z raztezanjem in pritiskom, ki izboljša gibljivost in energijski pretok.</p>
       <a class="btn" href="tajska.html">Več o masaži</a>
     </div>
 
     <div class="massage-box">
+      <img src="https://www.salon-tia.si/wp-content/uploads/2016/03/Masaza-aroma.jpg" alt="Aromaterapevtska masaža">
       <h3>Aromaterapevtska masaža</h3>
       <p>Združuje masažo in eterična olja za sproščanje duha in telesa. Popolna za odpravljanje stresa.</p>
       <a class="btn" href="aromaterapevtska.html">Več o masaži</a>
