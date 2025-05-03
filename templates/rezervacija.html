@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <title>Rezervacija masaže</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            width: 300px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            color: green;
+            font-weight: bold;
+            text-align: center;
+        }
+        .back-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rezervacija masaže</h1>
+
+    {% if sporocilo %}
+        <p class="message">{{ sporocilo }}</p>
+        <hr>
+    {% endif %}
+
+    <form method="post">
+        Ime: <input type="text" name="ime" required><br><br>
+
+        Masaža:
+        <select name="masaza">
+            <option value="švedska">Švedska</option>
+            <option value="športna">Športna</option>
+            <option value="tajska">Tajska</option>
+            <option value="aromaterapevtska">Aromaterapevtska</option>
+        </select><br><br>
+
+        Izberi termin:
+        <select name="termin">
+            {% for t in termini %}
+                <option value="{{ t }}">{{ t }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Rezerviraj</button>
+    </form>
+
+    <a href="index.html" class="back-btn">Nazaj na začetno stran</a>
+</body>
+</html>
