@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 from tinydb import TinyDB, Query
 from datetime import datetime
+import random
 
 app = Flask(__name__)
 
@@ -39,16 +40,18 @@ def register():
         password = request.form['password']
         confirm = request.form['confirm']
 
+        ID = random.randrange(10,1000000)
+
         if password != confirm:
             error = 'Gesli se ne ujemata.'
         elif db_uporabniki.search(Uporabnik.uporabnisko_ime == username):
             error = 'Uporabniško ime že obstaja.'
         else:
-            db_uporabniki.insert({'uporabnisko_ime': username, 'geslo': password})
-            session['uporabnisko_ime'] = username
+            db_uporabniki.insert({'uporabnisko_ime': username, 'geslo': password,'id':ID})
+            #session['uporabnisko_ime'] = username
             return redirect('/index.html')
 
-    return render_template('index.html', error=error)
+    return render_template('register.html', error=error,ID=id)
 
 # Stran za različne vrste masaž
 @app.route('/svedska.html')
