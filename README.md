@@ -1,33 +1,31 @@
-## Razvoj ideje
-Spletna stran za uvoz avtomobilskih delov je namenjena posameznikom in podjetjem, ki iščejo kakovostne in cenovno ugodne avto dele iz tujine. Ideja temelji na zagotavljanju širokega spektra nadomestnih delov, hitri dostavi in enostavnem naročanju preko intuitivne spletne platforme.
+## Razvoj ideje  
+Spletna stran za masažni salon je namenjena posameznikom, ki iščejo kakovostne masažne storitve, sprostitev in izboljšanje počutja. Ideja temelji na zagotavljanju široke ponudbe masaž, enostavnem naročanju terminov ter osebnem pristopu k strankam preko sodobne, intuitivne spletne platforme.
 
-### Spletna trgovina bo omogočala:
-- Pregled obsežne baze avto delov po kategorijah, proizvajalcih in modelih vozil.
-- Primerjavo cen med različnimi proizvajalci in dobavitelji.
-- Možnost personaliziranih naročil za redke ali specifične dele.
-- Hitro dostavo in možnost sledenja naročil.
-- Svetovanje in podporo strankam preko klepeta v živo ali e-pošte.
+### Spletna stran salona bo omogočala:
+- Pregled vseh masažnih storitev po kategorijah (klasična, terapevtska, športna, sprostitvena, tajska ipd.).
+- Enostavno in hitro rezervacijo terminov prek spleta.
+- Stik s salonom preko klepeta v živo ali e-pošte za dodatne informacije in svetovanje.
 
-## Raziskava problema
-Obstoječi trg avtomobilskih delov se srečuje z več izzivi:
-1. **Visoke cene pri lokalnih dobaviteljih** – Mnogi potrošniki iščejo ugodnejše alternative.
-2. **Omejena ponudba** – Lokalni trgovci ne pokrivajo vedno vseh potreb potrošnikov.
-3. **Dolgi dobavni roki** – Tradicionalni dobavitelji včasih ne morejo zagotoviti hitre dostave.
-4. **Pomanjkanje informacij o delih** – Potrošniki pogosto niso prepričani, kateri del je pravi za njihovo vozilo.
+## Raziskava problema  
+Obstoječi trg masažnih storitev se srečuje z več izzivi:
+1. **Težavno iskanje prostih terminov** – Veliko strank se sooča z dolgim čakanjem ali neodzivnostjo salonov.
+2. **Nepregledna ponudba storitev** – Stranke pogosto ne vedo, katera masaža je prava za njihove potrebe.
+3. **Pomanjkanje informacij o terapevtih** – Mnogim primanjkuje zaupanja, ker ne poznajo osebja.
+4. **Zapleteni postopki naročanja** – Brez digitalizacije saloni izgubljajo potencialne stranke, ki želijo hitro in enostavno storitev.
 
-Naš cilj je odpraviti te težave s pomočjo transparentne in učinkovite platforme, ki bo omogočala preprosto iskanje, primerjavo in naročanje avto delov iz tujine.
+Naš cilj je odpraviti te težave s pomočjo profesionalne, pregledne in uporabniku prijazne platforme za naročanje masaž.
 
-## Analiza trga
-Trg avtomobilskih delov je obsežen in rastoč, predvsem zaradi:
-- Naraščajočega števila registriranih vozil.
-- Povečanega povpraševanja po nadomestnih delih.
-- Trenda spletnega nakupovanja tudi v avtomobilski industriji.
+## Analiza trga  
+Trg wellness in masažnih storitev se hitro razvija, zaradi:
+- Rastoče potrebe po sprostitvi in zmanjševanju stresa.
+- Večjega zavedanja o pomenu telesnega in duševnega zdravja.
+- Povečanega zanimanja za digitalne rešitve in spletno naročanje storitev.
 
 ## Konkurenčna prednost:
-- Direktna povezava s tujimi dobavitelji za nižje cene.
-- Enostavna in pregledna platforma z možnostjo filtriranja.
-- Hitra dostava s partnerji v logistiki.
-- Strokovna podpora in svetovanje.
+- Možnost spletne rezervacije kadarkoli in kjerkoli.
+- Pregledna platforma z ocenami, opisi masaž in terapevtov.
+- Povezava z najboljšimi lokalnimi strokovnjaki.
+- Prilagodljivost – posebni paketi, akcije in darilni boni.
+- Strokovna in prijazna podpora strankam.
 
-Spletna trgovina bo tako odpravljala ključne težave na trgu in nudila edinstveno rešitev za uvoz avtomobilskih delov, prilagojeno potrebam kupcev.
-
+Spletna stran masažnega salona bo tako reševala ključne težave uporabnikov in ponujala sodobno, celovito in pomirjujočo izkušnjo – že od prvega klika dalje.
