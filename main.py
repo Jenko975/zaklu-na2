@@ -48,7 +48,6 @@ def register():
             error = 'Uporabniško ime že obstaja.'
         else:
             db_uporabniki.insert({'uporabnisko_ime': username, 'geslo': password,'id':ID})
-            #session['uporabnisko_ime'] = username
             return redirect('/index.html')
 
     return render_template('register.html', error=error,ID=id)
@@ -72,30 +71,26 @@ def aromaterapevtska_masaza():
 
 @app.route("/rezervacija.html", methods=["GET", "POST"])
 def rezervacija():
-    # Preberi termine iz datoteke
     with open("termini.txt", "r", encoding="utf-8") as f:
         termini = [vrstica.strip() for vrstica in f if vrstica.strip()]
 
-    sporocilo = None  # Sporočilo za prikaz po rezervaciji
+    sporocilo = None
 
     if request.method == "POST":
         ime = request.form["ime"]
         masaza = request.form["masaza"]
         izbrani_termin = request.form["termin"]
 
-        # Shrani rezervacijo
         with open("prijave.txt", "a", encoding="utf-8") as f:
             f.write(f"{datetime.now()} | {ime} | {masaza} | {izbrani_termin}\n")
 
-        # Odstrani izbran termin
         novi_termini = [t for t in termini if t != izbrani_termin]
         with open("termini.txt", "w", encoding="utf-8") as f:
             for t in novi_termini:
                 f.write(t + "\n")
 
-        # Nastavi potrditveno sporočilo
         sporocilo = f"Hvala, {ime}, uspešno si rezerviral(a) {masaza} masažo ob {izbrani_termin}."
-        termini = novi_termini  # Osveži prikazane termine
+        termini = novi_termini
 
     return render_template("rezervacija.html", termini=termini, sporocilo=sporocilo)
 if __name__ == '__main__':
