@@ -71,8 +71,10 @@ def aromaterapevtska_masaza():
 
 @app.route("/rezervacija.html", methods=["GET", "POST"])
 def rezervacija():
-    with open("termini.txt", "r", encoding="utf-8") as f:
-        termini = [vrstica.strip() for vrstica in f if vrstica.strip()]
+    # Branje terminov brez "as"
+    f = open("termini.txt", "r", encoding="utf-8")
+    termini = [vrstica.strip() for vrstica in f if vrstica.strip()]
+    f.close()
 
     sporocilo = None
 
@@ -81,13 +83,17 @@ def rezervacija():
         masaza = request.form["masaza"]
         izbrani_termin = request.form["termin"]
 
-        with open("prijave.txt", "a", encoding="utf-8") as f:
-            f.write(f"{datetime.now()} | {ime} | {masaza} | {izbrani_termin}\n")
+        # Pisanje v prijave.txt
+        f = open("prijave.txt", "a", encoding="utf-8")
+        f.write(f"{datetime.now()} | {ime} | {masaza} | {izbrani_termin}\n")
+        f.close()
 
+        # Posodobitev terminov
         novi_termini = [t for t in termini if t != izbrani_termin]
-        with open("termini.txt", "w", encoding="utf-8") as f:
-            for t in novi_termini:
-                f.write(t + "\n")
+        f = open("termini.txt", "w", encoding="utf-8")
+        for t in novi_termini:
+            f.write(t + "\n")
+        f.close()
 
         sporocilo = f"Hvala, {ime}, uspešno si rezerviral(a) {masaza} masažo ob {izbrani_termin}."
         termini = novi_termini
