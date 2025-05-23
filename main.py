@@ -71,7 +71,6 @@ def aromaterapevtska_masaza():
 
 @app.route("/rezervacija.html", methods=["GET", "POST"])
 def rezervacija():
-    # Branje terminov brez "as"
     f = open("termini.txt", "r", encoding="utf-8")
     termini = [vrstica.strip() for vrstica in f if vrstica.strip()]
     f.close()
