@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, render_template, request, redirect, url_for
 from tinydb import TinyDB, Query
 from datetime import datetime
 import random
@@ -71,7 +71,7 @@ def aromaterapevtska_masaza():
 
 @app.route("/rezervacija.html", methods=["GET", "POST"])
 def rezervacija():
-    f = open("termini.txt", "r", encoding="utf-8")
+    f = open("termini.txt", "r", encoding="utf-8") #prebere taxt ku je v datoteki (r=read+)
     termini = [vrstica.strip() for vrstica in f if vrstica.strip()]
     f.close()
 
@@ -83,13 +83,13 @@ def rezervacija():
         izbrani_termin = request.form["termin"]
 
         # Pisanje v prijave.txt
-        f = open("prijave.txt", "a", encoding="utf-8")
+        f = open("prijave.txt", "a", encoding="utf-8") #vsebinas e doda na konec (a=append)
         f.write(f"{datetime.now()} | {ime} | {masaza} | {izbrani_termin}\n")
         f.close()
 
         # Posodobitev terminov
         novi_termini = [t for t in termini if t != izbrani_termin]
-        f = open("termini.txt", "w", encoding="utf-8")
+        f = open("termini.txt", "w", encoding="utf-8") #napiše nove termine ki so ustrali (w=write)
         for t in novi_termini:
             f.write(t + "\n")
         f.close()
@@ -98,5 +98,6 @@ def rezervacija():
         termini = novi_termini
 
     return render_template("rezervacija.html", termini=termini, sporocilo=sporocilo)
+
 if __name__ == '__main__':
     app.run(debug=True)
