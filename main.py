@@ -4,7 +4,6 @@ from datetime import datetime
 import random
 
 app = Flask(__name__)
-
 db_uporabniki = TinyDB('uporabniki.json')
 Uporabnik = Query()
 
